@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_15_130102) do
+ActiveRecord::Schema.define(version: 2019_06_15_134946) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "casinos", force: :cascade do |t|
+    t.string "name"
+    t.string "affiliate_link"
+    t.string "affiliate_program"
+    t.string "logo"
+    t.string "bonus_code"
+    t.string "bonus_percentage"
+    t.integer "bonus_amount"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
