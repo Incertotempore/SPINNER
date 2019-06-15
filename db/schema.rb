@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_15_134946) do
+ActiveRecord::Schema.define(version: 2019_06_15_153105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 2019_06_15_134946) do
     t.string "bonus_code"
     t.string "bonus_percentage"
     t.integer "bonus_amount"
+  end
+
+  create_table "plays", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "casino_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "amount"
+    t.index ["casino_id"], name: "index_plays_on_casino_id"
+    t.index ["user_id"], name: "index_plays_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,4 +52,6 @@ ActiveRecord::Schema.define(version: 2019_06_15_134946) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "plays", "casinos"
+  add_foreign_key "plays", "users"
 end
