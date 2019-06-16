@@ -7,6 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+
+puts 'Cleaning database...'
+Casino.destroy_all
+User.destroy_all
+Play.destroy_all
+
+
 puts 'Creating 10 fake casinos...'
 10.times do
   casino = Casino.new(
@@ -22,3 +29,46 @@ puts 'Creating 10 fake casinos...'
   casino.save!
 end
 puts 'Finished!'
+
+
+puts 'Creating Users...'
+5.times do
+  new_user = User.new(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    address: Faker::Address.full_address,
+    email: Faker::Internet.email,
+    phone_number: Faker::PhoneNumber.phone_number_with_country_code,
+    password: "123456",
+    avatar: ""
+    )
+  new_user.save
+  puts "#{new_user} - #{new_user.first_name} #{new_user.last_name} has been created as a #{new_user.valid?} user."
+end
+
+
+
+puts "Creating Plays..."
+20.times do
+  new_play = Play.new(
+    casino_id: Casino.all.sample.id,
+    user_id: User.all.sample.id,
+    amount: rand(-150..150),
+    )
+  new_play.save
+  puts "#{new_play} with amount #{new_play.amount} has been created as a #{new_play.valid?} play."
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
