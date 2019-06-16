@@ -1,1 +1,11 @@
 <h1>Profile Page</h1>
+
+<div class="profile-infos">
+  <h4>Name: </h4><p><%= @user.first_name %> <%= @user.last_name %></p>
+  <h4>Phone: </h4><p><%= @user.phone_number %></p>
+  <h4>Email: </h4><p><%= @user.email %></p>
+</div>
+
+<div>
+<%= link_to "Edit profile", edit_user_registration_path, class: "btn home-button" %>
+</div>

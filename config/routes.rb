@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   get '/tutorials', to: 'pages#tutorials', as: 'tutorials'
   get '/about', to: 'pages#about', as: 'about'
   get '/profile', to: 'pages#profile', as: 'profile'
+  get '/history', to: 'pages#history', as: 'history'
 
 end

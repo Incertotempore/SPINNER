@@ -10,6 +10,9 @@ class PagesController < ApplicationController
   def tutorials
   end
 
+  def history
+  end
+
   def profile
     # "show" view for user
     @user = current_user
