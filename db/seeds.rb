@@ -11,6 +11,7 @@ require 'faker'
 puts 'Cleaning database...'
 Casino.destroy_all
 User.destroy_all
+Play.destroy_all
 
 
 puts 'Creating 10 fake casinos...'
@@ -44,3 +45,30 @@ puts 'Creating Users...'
   new_user.save
   puts "#{new_user} - #{new_user.first_name} #{new_user.last_name} has been created as a #{new_user.valid?} user."
 end
+
+
+
+puts "Creating Plays..."
+20.times do
+  new_play = Play.new(
+    casino_id: Casino.all.sample.id,
+    user_id: User.all.sample.id,
+    amount: rand(-150..150),
+    )
+  new_play.save
+  puts "#{new_play} with amount #{new_play.amount} has been created as a #{new_play.valid?} play."
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
