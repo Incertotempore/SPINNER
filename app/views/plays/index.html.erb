@@ -1,0 +1,14 @@
+<% @plays.each do |play| %>
+  <div class="card_play">
+    <div class="card_play_infos">
+      <div>
+        <p>Casino: <%= play.casino_id %></p>
+        <p>Owner: <%= play.user_id %></p>
+        <p>Created: <%= play.created_at.strftime("%d/%m/%y") %></p>
+        <p>Amount: <%= play.amount %></p>
+        <p>------------------------></p>
+
+      </div>
+    </div>
+  </div>
+  <% end %>

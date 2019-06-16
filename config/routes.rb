@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   get '/profile', to: 'pages#profile', as: 'profile'
   get '/history', to: 'pages#history', as: 'history'
 
+  get '/plays', to: 'plays#index', as: 'plays'
+
 end
