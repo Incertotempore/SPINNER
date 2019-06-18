@@ -11,5 +11,4 @@ class PlaysController < ApplicationController
     @play = Play.new
   end
 
-
 end
