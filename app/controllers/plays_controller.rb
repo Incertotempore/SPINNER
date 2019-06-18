@@ -1,5 +1,5 @@
 class PlaysController < ApplicationController
-  def index
+    def index
     @plays = Play.all
   end
 
@@ -10,5 +10,4 @@ class PlaysController < ApplicationController
   def new
     @play = Play.new
   end
-
 end
